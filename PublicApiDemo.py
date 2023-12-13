@@ -6,16 +6,12 @@ import pandas as pd
 
 import requests
 
-
-
-
-
 app = Flask(__name__)
 
 api = Api(app)
-
-
-
+#Belirtilen tarih aralığında oluşan gerçek depremlerin bilgilerini çeken api
+#starttime başlangıç tarihi filtresini, endtime bitiş tarihi filtresini, limit ise getirilecek max kayıt adedini belirtir.
+#limit parametresini kullanmadan maksimum 20000 deprem kaydı çekebilirsiniz. Üzerindeki sayılar için api custom hata mesajı dönecektir.
 class Earthquakes(Resource):
 
    def get(self,starttime,endtime,limit):
