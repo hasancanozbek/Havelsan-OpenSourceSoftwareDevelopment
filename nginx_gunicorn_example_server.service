@@ -1,0 +1,14 @@
+[Unit]
+# specifies metadata and dependencies
+Description=Ornek sunucu
+After=network.target
+
+[Service]
+#Service specify the user and group under wich our process will run
+User=www.data
+Group=www.data
+WorkingDirectory=/opt/hasancan
+ExecStart=/usr/bin/gunicorn --workers 3 --bind unix:app.sock -m 007 wsgi:app
+
+[Install]
+WantedBy=mukti-user.target
